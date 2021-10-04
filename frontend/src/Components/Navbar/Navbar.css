@@ -1,0 +1,13 @@
+.navbar-nav{
+    padding-left: 85% !important;
+}
+.nav-link{
+    color: white !important;
+    padding-left: 50px;
+}
+
+.navbar-brand{
+    color: white !important;
+    font-size: 25px;
+    padding-left: 40px;
+}
