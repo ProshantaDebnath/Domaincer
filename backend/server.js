@@ -4,26 +4,32 @@ const db = require("./db.js");
 
 const Job = require('./models/jobModel');
 
+const jobsRoute = require('./routes/jobsRoute');
+
 const port = process.env.PORT || 5000;
 
 const app = express();
 
 app.use(express.json());
 
+
+
+app.use('/api/jobs/', jobsRoute);
+
 app.get("/", (req, res) => {
     res.send("Server is workin on " + port)
 });
 
-app.get("/getjobs", (req, res) =>{
+// app.get("/getjobs", (req, res) =>{
 
-    Job.find({}, (err, docs)=>{
-        if(err){
-            console.log(err);
-        }else{
-           res.send(docs); 
-        }
-    })
-})
+//     Job.find({}, (err, docs)=>{
+//         if(err){
+//             console.log(err);
+//         }else{
+//            res.send(docs); 
+//         }
+//     })
+// })
 
 app.listen(port, ()=>{
     console.log("server is running on " + port)
