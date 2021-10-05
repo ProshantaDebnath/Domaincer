@@ -7,10 +7,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 //reducer import
 import { getAllJobsReducer } from './reducers/jobReducers';
-
+import { registerUserReducer } from './reducers/userReducer'
 
 const finalReducer = combineReducers({
-    getAllJobsReducer : getAllJobsReducer
+    getAllJobsReducer : getAllJobsReducer,
+    registerUserReducer : registerUserReducer
 });
 
 const initalState = {}

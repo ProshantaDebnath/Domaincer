@@ -5,6 +5,7 @@ const db = require("./db.js");
 const Job = require('./models/jobModel');
 
 const jobsRoute = require('./routes/jobsRoute');
+const userRoute = require('./routes/userRoute');
 
 const port = process.env.PORT || 5000;
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 
 app.use('/api/jobs/', jobsRoute);
+app.use('/api/users/', userRoute)
 
 app.get("/", (req, res) => {
     res.send("Server is workin on " + port)
