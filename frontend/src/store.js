@@ -7,14 +7,22 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 //reducer import
 import { getAllJobsReducer } from './reducers/jobReducers';
-import { registerUserReducer } from './reducers/userReducer'
+import { registerUserReducer, loginUserReducer } from './reducers/userReducer'
 
 const finalReducer = combineReducers({
     getAllJobsReducer : getAllJobsReducer,
-    registerUserReducer : registerUserReducer
+    registerUserReducer : registerUserReducer,
+    loginUserReducer: loginUserReducer
 });
 
-const initalState = {}
+
+const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null
+
+const initalState = {
+    loginUserReducer: {
+        currentUser: currentUser
+    }
+}
 
 
 const composeEnhancers = composeWithDevTools({})
