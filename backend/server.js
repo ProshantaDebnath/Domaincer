@@ -18,6 +18,17 @@ app.use(express.json());
 app.use('/api/jobs/', jobsRoute);
 app.use('/api/users/', userRoute)
 
+
+if(process.env.NODE_ENV ==='production'){
+
+    app.use('/', express.static('frontend/build'))
+
+    app.get('*', (req,res)=>{
+        res.sendFile(path.resolve(__dirname, 'frontend/build/index.html'))
+    })
+}
+
+
 app.get("/", (req, res) => {
     res.send("Server is workin on " + port)
 });
@@ -32,6 +43,7 @@ app.get("/", (req, res) => {
 //         }
 //     })
 // })
+
 
 app.listen(port, ()=>{
     console.log("server is running on " + port)
