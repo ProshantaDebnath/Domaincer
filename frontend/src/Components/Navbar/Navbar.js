@@ -19,15 +19,23 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
 
-                        {currentUser ? (<li className="nav-item">
-                        <a className="nav-link" href="/" onClick={() => { dispatch(logoutUser()) }}>Logout</a>
-                        </li>) :
-                            (
+                        {currentUser ? (
+
                             <div>
                                 <li className="nav-item ">
-                                <a className="nav-link" href="/login">LogIn</a>
-                            </li>
-                            </div>)}
+                                    <a style={{backgroundColor:'white'}}> {currentUser.name}</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/" onClick={() => { dispatch(logoutUser()) }}>Logout</a>
+                                </li>
+                            </div>
+                        ) :
+                            (
+                                <div>
+                                    <li className="nav-item ">
+                                        <a className="nav-link" href="/login">LogIn</a>
+                                    </li>
+                                </div>)}
 
                     </ul>
                 </div>

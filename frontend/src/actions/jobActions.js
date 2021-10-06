@@ -12,3 +12,36 @@ export const getAllJobs = () => async dispatch => {
     }
 
 }
+
+
+
+export const addjob=(job)=> async dispatch=>{
+
+    dispatch({type: 'ADD_ITEM_REQUEST'})
+
+    try {
+        const response = await axios.post('/api/jobs/addjob', {job})
+        console.log(response)
+        dispatch({type:'ADD_JOB_SUCCESS'})
+    } catch (error) {
+        dispatch({type : 'ADD_JOB_FAILED', payload : error})
+    }
+
+}
+
+
+
+export const deletejob = (itemid) => async dispatch =>{
+
+    try {
+        const response = await axios.post('/api/jobs/deletejob', {itemid})
+        alert('Item deleted successfull')
+        console.log(response)
+        window.location.reload()
+    } catch (error) {
+        alert('Something went wrong')
+        console.log(error)
+        
+    }
+
+}

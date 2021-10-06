@@ -6,13 +6,14 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 //reducer import
-import { getAllJobsReducer } from './reducers/jobReducers';
+import { addJobReducer, getAllJobsReducer } from './reducers/jobReducers';
 import { registerUserReducer, loginUserReducer } from './reducers/userReducer'
 
 const finalReducer = combineReducers({
     getAllJobsReducer : getAllJobsReducer,
     registerUserReducer : registerUserReducer,
-    loginUserReducer: loginUserReducer
+    loginUserReducer: loginUserReducer,
+    addJobReducer : addJobReducer
 });
 
 

@@ -17,3 +17,24 @@ export const getAllJobsReducer = (state = { jobs: [] }, action) => {
         default: return state
     }
 }
+
+
+
+export const addJobReducer = (state = {}, action) => {
+
+    switch (action.type) {
+        case 'ADD_JOB_REQUEST': return {
+            loading: true,
+            ...state
+        }
+        case 'ADD_JOB_SUCCESS': return {
+            loading: false,
+            success: true,
+        }
+        case 'ADD_JOB_FAILED': return {
+            error: action.payload, 
+            loading: false,
+        }
+        default: return state
+    }
+}
