@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 const db = require("./db.js");
 
@@ -19,30 +20,24 @@ app.use('/api/jobs/', jobsRoute);
 app.use('/api/users/', userRoute)
 
 
-if(process.env.NODE_ENV ==='production'){
+const __dirname = path.resolve();
 
-    app.use('/', express.static('client/build'))
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
 
-    app.get('*', (req,res)=>{
-        res.sendFile(path.resolve(__dirname, 'client/build/index.html'))
-    })
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
 }
 
 
 app.get("/", (req, res) => {
     res.send("Server is workin on " + port)
 });
-
-// app.get("/getjobs", (req, res) =>{
-
-//     Job.find({}, (err, docs)=>{
-//         if(err){
-//             console.log(err);
-//         }else{
-//            res.send(docs); 
-//         }
-//     })
-// })
 
 
 app.listen(port, ()=>{
