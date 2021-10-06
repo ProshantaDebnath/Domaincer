@@ -1,6 +1,16 @@
 
 ## A Recruitment Website
 
+## Features
+
+- Login / Logout
+- Apply to job
+- Admin Dashboard
+- pagination
+- Add to new job(Admin)
+- view applicant details(Admin)
+- protected routes for admin panel
+
 
 ## Landing page
 ![Homepage](https://user-images.githubusercontent.com/73601711/136291642-dc980ad2-c5aa-49f3-b3e8-48fbd3e12450.PNG)
@@ -22,6 +32,15 @@
 ![Register](https://user-images.githubusercontent.com/73601711/136292727-f1d45872-24b5-4ca4-83a6-4dd1b7cf06d5.PNG)
 
 
+### Install Dependencies (frontend & backend)
+
+```
+npm install
+cd client
+npm install
+```
+
+
 ## Built with 
 
 - [React JS](https://reactjs.org/)
@@ -29,3 +48,13 @@
 - [Express JS](https://expressjs.com/)
 - [Mongo DB](https://www.mongodb.com/)
 - [Bootstrap](http://getbootstrap.com/)
+
+#### Sample User Logins
+
+
+john@example.com (Applicant)
+123456
+
+jane@example.com (Applicant)
+123456
+```
