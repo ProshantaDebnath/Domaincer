@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deletejob, getAllJobs } from '../../actions/jobActions'
+import Error from '../../Components/Loader/Error'
+import Loading from '../../Components/Loader/Loading'
 
 export default function Jobslist() {
 
@@ -17,8 +19,9 @@ export default function Jobslist() {
     return (
         <div>
             <h2 style={{ fontSize: '22px', fontWeight: 'bold' }}>Jobs List</h2>
-            {/* {loading && (<Loading />)}
-          {error && <Error error='Something went wrong' />} */}
+            
+            {loading && (<Loading />)}
+            {error && <Error error='Something went wrong' />}
 
             <table className='table table-light table-striped table-bordered table-responsive-sm'>
 

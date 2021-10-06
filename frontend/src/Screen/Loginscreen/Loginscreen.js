@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {loginUser} from '../../actions/userActions';
+import Error from '../../Components/Loader/Error';
+import Loading from '../../Components/Loader/Loading';
 
 
 export default function Loginscreen() {
@@ -8,6 +10,10 @@ export default function Loginscreen() {
     const [email, setemail] = useState('');
     const [password, setpassword] = useState('')
     const dispatch = useDispatch()
+
+
+    const loginstate = useSelector(state => state.loginUserReducer)
+    const { loading, error } = loginstate
 
     useEffect(() => {
 
@@ -30,6 +36,9 @@ export default function Loginscreen() {
                     <h2 className='text-center m-2' style={{ fontSize: '27px' }}>
                         <strong>Login</strong>
                     </h2>
+
+                    {loading && (<Loading/>)}
+                    {error && (<Error error='Invalid Credentials'/>)}
 
                     <div>
                         <input type="text"

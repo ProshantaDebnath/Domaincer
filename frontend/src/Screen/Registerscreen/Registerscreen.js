@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import "./Registerscreen.css"
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../actions/userActions';
+import Loading from '../../Components/Loader/Loading';
+import Success from '../../Components/Loader/Success';
+import Error from '../../Components/Loader/Error';
 
 export default function Registerscreen() {
 
@@ -9,6 +12,9 @@ export default function Registerscreen() {
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [cpassword, setcpassword] = useState('')
+
+    const registerstate = useSelector(state => state.registerUserReducer)
+    const {error, loading, success}= registerstate
 
     const dispatch = useDispatch()
 
@@ -34,9 +40,9 @@ export default function Registerscreen() {
             <div className="row justify-content-center" style={{ marginTop: '7%' }}>
                 <div className="col-md-5 shadow p-3 mb-5 bg-white rounded">
 
-                    {/* {loading && (<Loading />)}
+                    {loading && (<Loading />)}
                     {success && (<Success success='User Registration Successful' />)}
-                    {error && (<Error error='Email already registered' />)} */}
+                    {error && (<Error error='Email already registered' />)}
 
                     <h2><strong>Register</strong></h2>
                     <div>

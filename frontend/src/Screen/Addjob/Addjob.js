@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addjob } from '../../actions/jobActions';
+import Error from '../../Components/Loader/Error';
+import Loading from '../../Components/Loader/Loading';
+import Success from '../../Components/Loader/Success';
 
 export default function Addjob() {
 
@@ -13,9 +16,9 @@ export default function Addjob() {
 
     const dispatch = useDispatch()
 
-    // const jobsstate = useSelector(state => state.getAllJobsReducer)
+    const jobsstate = useSelector(state => state.getAllJobsReducer)
 
-    // const { jobs, error, loading } = jobsstate
+    const { success, error, loading } = jobsstate
 
 
     function formHandler(e) {
@@ -37,9 +40,9 @@ export default function Addjob() {
             <div className='text-left shadow p-3 mb-5 bg-white rounded table-responsive-sm'>
                 <h2 style={{ fontSize: '18px', fontWeight: 'bold' }}>Add New One</h2>
 
-                {/* {loading && (<Loading />)}
+                {loading && (<Loading />)}
                 {error && (<Error error='Something went wrong' />)}
-                {success && (<Success success='Added Successfully' />)} */}
+                {success && (<Success success='Added Successfully' />)}
 
                 <form onSubmit={formHandler}>
                     <input
