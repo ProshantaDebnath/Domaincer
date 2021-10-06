@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "v12.18.3",
+    "npm" : "6.14.6"
+  },
   "scripts": {
     "frontend-install": "npm install --prefix frontend",
     "backend": "nodemon server.js",
@@ -12,7 +16,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
-  "author": "",
+  "author": "proshanta debnath",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
