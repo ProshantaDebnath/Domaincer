@@ -31,11 +31,11 @@ export const addjob=(job)=> async dispatch=>{
 
 
 
-export const deletejob = (itemid) => async dispatch =>{
+export const deletejob = (jobid) => async dispatch =>{
 
     try {
-        const response = await axios.post('/api/jobs/deletejob', {itemid})
-        alert('Item deleted successfull')
+        const response = await axios.post('/api/jobs/deletejob', {jobid})
+        alert('Job deleted successfull')
         console.log(response)
         window.location.reload()
     } catch (error) {

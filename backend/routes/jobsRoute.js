@@ -34,10 +34,10 @@ router.post("/addjob", async (req,res)=>{
 
 
 router.post("/deletejob", async (req, res)=>{
-    const itemid = req.body.itemid
+    const jobid = req.body.jobid
     
     try {
-        await Foods.findOneAndDelete({_id : itemid})
+        await Jobs.findOneAndDelete({_id : jobid})
         res.send("job deleted successfully")
     } catch (error) {
         return res.status(400).json({ message : error})

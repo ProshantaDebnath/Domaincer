@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllJobs } from '../../actions/jobActions'
+import { deletejob, getAllJobs } from '../../actions/jobActions'
 
 export default function Jobslist() {
 
@@ -42,7 +42,7 @@ export default function Jobslist() {
                             <td style={{ textAlign: 'center' }}>
                                 <button className='m-2'
                                     style={{ color: 'white', background: 'red', textAlign: 'center' }}
-                                    onClick={() => { dispatch((job._id)) }}>
+                                    onClick={() => { dispatch(deletejob(job._id)) }}>
                                     Delete</button>
                             </td>
                         </tr>
